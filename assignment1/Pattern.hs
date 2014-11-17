@@ -29,9 +29,10 @@ match w a b
 
 -- Helper function to match
 singleWildcardMatch, longerWildcardMatch :: Eq a => [a] -> [a] -> Maybe [a]
-singleWildcardMatch (wc:ps) (x:xs) = if (ps == [] ||(head ps) == (head xs))  then mmap ([x] ++) (match wc ps xs) else Nothing
+singleWildcardMatch (wc:ps) (x:xs) = if (ps == [] || xs == [] || head ps == head xs) then mmap (const [x]) (match wc ps xs) else Nothing
+
 {- TO BE WRITTEN -}
-longerWildcardMatch (wc:ps) (x:xs) = if (ps == [] || (head ps) /= (head xs)) then mmap ([x] ++) (match wc (wc:ps) xs) else Nothing
+longerWildcardMatch (wc:ps) (x:xs) = if (ps == [] || xs == [] || ps /= xs) then mmap ([x] ++) (match wc (wc:ps) xs) else  Nothing
 {- TO BE WRITTEN -}
 
 
