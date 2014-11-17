@@ -24,16 +24,12 @@ match w a b
 	| (head a) == w = orElse (singleWildcardMatch a b) (longerWildcardMatch a b)
 	| otherwise = Nothing
 
-{- TO BE WRITTEN -}
 
 
 -- Helper function to match
 singleWildcardMatch, longerWildcardMatch :: Eq a => [a] -> [a] -> Maybe [a]
 singleWildcardMatch (wc:ps) (x:xs) = if (ps == [] || xs == [] || head ps == head xs) then mmap (const [x]) (match wc ps xs) else Nothing
-
-{- TO BE WRITTEN -}
 longerWildcardMatch (wc:ps) (x:xs) = if (ps == [] || xs == [] || ps /= xs) then mmap ([x] ++) (match wc (wc:ps) xs) else  Nothing
-{- TO BE WRITTEN -}
 
 
 
@@ -59,12 +55,10 @@ matchCheck = matchTest == Just testSubstitutions
 transformationApply :: Eq a => a -> ([a] -> [a]) -> [a] -> ([a], [a]) -> Maybe [a]
 transformationApply w f patt ([],[]) = Nothing
 transformationApply w f patt (first, second) = mmap (substitute w second) (match w first (f patt))
-{- TO BE WRITTEN -}
 
 
 -- Applying a list of patterns until one succeeds
 transformationsApply :: Eq a => a -> ([a] -> [a]) -> [([a], [a])] -> [a] -> Maybe [a]
 transformationsApply _ _ [] _ = Nothing
 transformationsApply w f (p:ps) s = orElse (transformationApply w f s p) (transformationsApply w f ps s)
-{- TO BE WRITTEN -}
 
