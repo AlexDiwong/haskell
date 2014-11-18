@@ -8,9 +8,9 @@ import Utilities
 
 -- Replaces a wildcard in a list with the list given as the third argument
 substitute :: Eq a => a -> [a] -> [a] -> [a]
-substitute _ _ [] = []
+substitute _ xs [] = xs
 substitute _ [] _ = []
-substitute w b c = foldl (\acc x -> if x == w then acc ++ c else acc++[x]) [] b 
+substitute w b c = foldl (\acc x -> if x == w then acc ++ c else acc++[x]) [] b
 
 
 -- Tries to match two lists. If they match, the result consists of the sublist
@@ -46,7 +46,6 @@ matchTest = match '*' testPattern testString
 matchCheck = matchTest == Just testSubstitutions
 
 
-
 -------------------------------------------------------
 -- Applying patterns
 --------------------------------------------------------
@@ -61,4 +60,5 @@ transformationApply w f patt (first, second) = mmap (substitute w second . f) (m
 transformationsApply :: Eq a => a -> ([a] -> [a]) -> [([a], [a])] -> [a] -> Maybe [a]
 transformationsApply _ _ [] _ = Nothing
 transformationsApply w f (p:ps) s = orElse (transformationApply w f s p) (transformationsApply w f ps s)
+
 

@@ -21,7 +21,7 @@ try :: (a -> Maybe a) -> a -> a
 try f x = maybe x id (f x)
 
 -- Recursive function that applies a function on an argument --
--- Stops when the applied function results in the original argument (modulo?)  --
+-- Stops when the applied function results in the original argument  --
 fix :: Eq a => (a -> a) -> a -> a
 fix f x
    |  f x == x  = x
