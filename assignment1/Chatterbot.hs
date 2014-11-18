@@ -28,11 +28,11 @@ type BotBrain = [(Phrase, [Phrase])]
 
 stateOfMind :: BotBrain -> IO (Phrase -> Phrase)
 {- TO BE WRITTEN -}
-stateOfMind _ = return id
+stateOfMind _ = return id 
 
 rulesApply :: [PhrasePair] -> Phrase -> Phrase
 {- TO BE WRITTEN -}
-rulesApply _ = id
+rulesApply  = try . (transformationsApply "*" reflect)
 
 reflect :: Phrase -> Phrase
 {- TO BE WRITTEN -}
