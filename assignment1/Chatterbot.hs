@@ -31,8 +31,7 @@ stateOfMind :: BotBrain -> IO (Phrase -> Phrase)
 stateOfMind _ = return id
 
 rulesApply :: [PhrasePair] -> Phrase -> Phrase
-{- TO BE WRITTEN -}
-rulesApply _ = id
+rulesApply = try . (transformationsApply "*" reflect) 
 
 reflect :: Phrase -> Phrase
 reflect = map ((\refs list -> let m = (foldl (\acc x -> if (fst x == list) then (snd x):acc else acc) [] refs) in if(m == []) then list else (unwords m)) reflections)
