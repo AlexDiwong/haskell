@@ -35,7 +35,6 @@ rulesApply :: [PhrasePair] -> Phrase -> Phrase
 rulesApply _ = id
 
 reflect :: Phrase -> Phrase
-{- TO BE WRITTEN -}
 reflect = map ((\refs list -> let m = (foldl (\acc x -> if (fst x == list) then (snd x):acc else acc) [] refs) in if(m == []) then list else (unwords m)) reflections)
 
 reflections =
