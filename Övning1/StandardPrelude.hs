@@ -17,3 +17,15 @@ hanoi :: Float -> Float
 hanoi n
 	| n <= 0 = 0
 	| otherwise = 1 + 2 * hanoi (n-1)
+
+smallestFactor:: Int -> Int
+smallestFactor n 
+	| n == 0 = 0
+	| n == 1 = 1
+	| n == 2 = 2
+	| otherwise = nextFactor 1 n
+
+nextFactor:: Int -> Int -> Int 
+nextFactor k n 
+	| mod n (k+1) == 0 = k+1
+	| otherwise = nextFactor (k+1) n
