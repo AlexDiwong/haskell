@@ -17,10 +17,11 @@ rsubstitute w b c
 -- Tries to match two lists. If they match, the result consists of the sublist
 -- bound to the wildcard in the pattern list.
 match :: Eq a => a -> [a] -> [a] -> Maybe [a]
-match _ [] [] = Just []
 match _ _ [] = Nothing
 match _ [] _ = Nothing
 match w a b 
+	| a == [] && b == [] = Just []
+	| a == [] || b == [] = Nothing
 	| (head a) == (head b) = match w (tail a) (tail b)
 	| (head a) == w = orElse (singleWildcardMatch a b) (longerWildcardMatch a b)
 	| otherwise = Nothing
