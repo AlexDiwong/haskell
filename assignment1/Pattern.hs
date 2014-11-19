@@ -8,9 +8,10 @@ import Utilities
 
 -- Replaces a wildcard in a list with the list given as the third argument
 substitute :: Eq a => a -> [a] -> [a] -> [a]
-substitute _ xs [] = xs
-substitute _ [] _ = []
-substitute w b c = foldl (\acc x -> if x == w then acc ++ c else acc++[x]) [] b
+rsubstitute w b c 
+	| b == [] =	[]
+	| c == [] =  b
+	| otherwise = foldl (\acc x -> if x == w then acc ++ c else acc++[x]) [] b
 
 
 -- Tries to match two lists. If they match, the result consists of the sublist
@@ -37,7 +38,7 @@ longerWildcardMatch (wc:ps) (x:xs) = if (ps == [] || xs == [] || ps /= xs) then
 
 testPattern =  "a=*;"
 testSubstitutions = "32"
-testString = "a=32;"
+testString = "a=32;"/
 
 substituteTest = substitute '*' testPattern testSubstitutions
 substituteCheck = substituteTest == testString
