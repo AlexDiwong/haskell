@@ -1,7 +1,6 @@
 -- This module was formerly called "HugsUtils" - but it was 
 -- too messy to make it a "standard Hugs library" so we moved it
 -- over here.
-import Control.Exception hiding (assert)
 module HaskoreUtils(
 	assert,
 	unlinesS, concatS, rightS, leftS, centreS,
@@ -9,7 +8,7 @@ module HaskoreUtils(
 	andOnError, butOnError,
         zeroOrMore, oneOrMore,
 	) where
-
+import Control.Exception hiding (assert)
 import Control.Monad
 
 -- ToDo: decide on appropriate fixities for these functions
