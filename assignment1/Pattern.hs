@@ -8,7 +8,7 @@ import Utilities
 
 -- Replaces a wildcard in a list with the list given as the third argument
 substitute :: Eq a => a -> [a] -> [a] -> [a]
-substitute w b c 
+substitute w b c
 	| b == [] = []
 	| c == [] = b
 	| otherwise = foldl (\acc x -> if x == w then acc ++ c else acc++[x]) [] b
