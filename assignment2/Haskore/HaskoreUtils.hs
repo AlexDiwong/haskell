@@ -8,7 +8,6 @@ module HaskoreUtils(
 	andOnError, butOnError,
         zeroOrMore, oneOrMore,
 	) where
-import Control.Exception hiding (assert)
 import Control.Monad
 
 -- ToDo: decide on appropriate fixities for these functions
