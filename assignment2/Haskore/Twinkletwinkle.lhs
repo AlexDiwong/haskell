@@ -6,10 +6,6 @@
 > module ChildSong6 where
 > import Haskore
 >
-> -- Preliminaries: define some dotted durations
-> dhn, dqn, den, dsn, din :: Float
-> dhn = 3/4; dqn = 3/8; den = 3/16; dsn = 3/32; dtn= 3/64 
-> 
 > -- note updaters for mappings
 > fd d n = n d v
 > vol  n = n   v
@@ -32,7 +28,7 @@
 > v2  = lmap vol [f 4, f 4, c 5, c 5, g 4, g 4, c 5, c 5]
 > v3  = lmap vol [c 5, c 5, f 4, f 4, c 5, c 5, g 4, g 4]
 > 
-> mainVoice = v1 :+: v2 :+: times 2 v3 :+: v1 :+: v2
+> mainVoice = v1 :+: v2 :+: (times 2 v3) :+: v1 :+: v2
 > 
 > -- Putting it all together:
 > childSong6 = Instr "piano" (Tempo 3 (Phrase [Dyn SF] bassLine :=: mainVoice))
