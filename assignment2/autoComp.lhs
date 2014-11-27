@@ -40,6 +40,14 @@ CFCG
 
 And thus the song is CCFG FCGC CFCG CFCG CCFG FCGC or if you call the patterns 1,2,3 the song is: 1,2,3,3,1,2.
 
+The melody of the song is in this case a series of quarter notes. Like so:
+
+| C C C C | F F G - |
+| F F C C | G G C - |
+| C C F F | C C G - | x2
+| C C C C | F F G - |
+| F F C C | G G C - |
+
 
 Bass Lines
 ==========
