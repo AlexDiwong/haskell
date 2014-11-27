@@ -24,7 +24,7 @@
 > bassLine = times 3 b1 :+: times 2 b2 :+: times 4 b3 :+: times 5 b1
 > 
 > -- Main Voice:
-> v1  = [c 5, c  5, c 5, c 5, f 4, f 4, g 4, g 4, f 4, f 4, c 5, c 5, g 4, g 4, c 5, c 5, c 5, c 5, f 4, f 4, c 5, c 5, g 4, g 4, c 5, c 5, f 4, f 4, c 5, c 5, g 4, g 4, c 5, c  5, c 5, c 5, f 4, f 4, g 4, g 4, f 4, f 4, c 5, c 5, g 4, g 4, c 5, c 5] v
+> v1  = [c 5, c 5, c 5, c 5, f 4, f 4, g 4, g 4, f 4, f 4, c 5, c 5, g 4, g 4, c 5, c 5, c 5, c 5, f 4, f 4, c 5, c 5, g 4, g 4, c 5, c 5, f 4, f 4, c 5, c 5, > g 4, g 4, c 5, c 5, c 5, c 5, f 4, f 4, g 4, g 4, f 4, f 4, c 5, c 5, g 4, g 4, c 5, c 5] v
 
 > mainVoice = times 3 v1
 > 
