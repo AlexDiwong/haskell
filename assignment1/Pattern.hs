@@ -56,9 +56,9 @@ matchCheck = matchTest == Just testSubstitutions
 
 -- Applying a single pattern
 transformationApply :: Eq a => a -> ([a] -> [a]) -> [a] -> ([a], [a]) -> Maybe [a]
-transformationApply w patt (first, second)
+transformationApply w f patt (first, second)
 	| first == [] && second == [] = Nothing
-	| otherwise = mmap (substitute w second . )(match w first patt)
+	| otherwise = mmap (substitute w second . f)(match w first patt)
 
 
 -- Applying a list of patterns until one succeeds
