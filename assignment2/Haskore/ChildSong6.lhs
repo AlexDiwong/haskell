@@ -5,6 +5,10 @@
 
 > module ChildSong6 where
 > import Haskore
+>
+> -- Preliminaries: define some dotted durations
+> dhn, dqn, den, dsn, din :: Float
+> dhn = 3/4; dqn = 3/8; den = 3/16; dsn = 3/32; dtn= 3/64 
 > 
 > -- note updaters for mappings
 > fd d n = n d v

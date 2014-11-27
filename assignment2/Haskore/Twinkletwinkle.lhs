@@ -3,8 +3,12 @@
 
 {\small\begin{verbatim} 
 
-> module Twinkletwinkle where
+> module ChildSong6 where
 > import Haskore
+>
+> -- Preliminaries: define some dotted durations
+> dhn, dqn, den, dsn, din :: Float
+> dhn = 3/4; dqn = 3/8; den = 3/16; dsn = 3/32; dtn= 3/64 
 > 
 > -- note updaters for mappings
 > fd d n = n d v
@@ -24,11 +28,29 @@
 > bassLine = times 3 b1 :+: times 2 b2 :+: times 4 b3 :+: times 5 b1
 > 
 > -- Main Voice:
-> v1  = [c 5, c 5, c 5, c 5, f 4, f 4, g 4, g 4, f 4, f 4, c 5, c 5, g 4, g 4, c 5, c 5, c 5, c 5, f 4, f 4, c 5, c 5, g 4, g 4, c 5, c 5, f 4, f 4, c 5, c 5, g 4, g 4, c 5, c 5, c 5, c 5, f 4, f 4, g 4, g 4, f 4, f 4, c 5, c 5, g 4, g 4, c 5, c 5] v
-
-> mainVoice = times 3 v1
+> v1  = lmap (fd en) [c 5, c 5, c 5, c 5, f 4, f 4, g 4, g 4]
+> v2  = lmap vol [f 4, f 4, c 5, c 5, g 4, g 4, c 5, c 5]
+> v3  = lmap vol [c 5, c 5, f 4, f 4, c 5, c 5, g 4, g 4]
+> v1a = lmap (fd en) [a 5, e 5, d 5, fs 5, cs 5, b 4, e 5, b 4]
+> v1b = lmap vol    [cs 5 tn, d 5 (qn-tn), cs 5 en, b 4 en]
+> 
+> v2  = v2a :+: v2b :+: v2c :+: v2d :+: v2e :+: v2f
+> v2a = lmap vol [cs 5 (dhn+dhn), d 5 dhn, 
+>                 f 5 hn, gs 5 qn, fs 5 (hn+en), g 5 en]
+> v2b = lmap (fd en) [fs 5, e 5, cs 5, as 4] :+: a 4 dqn v :+:
+>       lmap (fd en) [as 4, cs 5, fs 5, e 5, fs 5, g 5, as 5]
+> v2c = lmap vol [cs 6 (hn+en), d 6 en, cs 6 en, e 5 en] :+: enr :+: 
+>       lmap vol [as 5 en, a 5 en, g 5 en, d 5 qn, c 5 en, cs 5 en]
+> v2d = lmap (fd en) [fs 5, cs 5, e 5, cs 5, a 4, as 4, d 5, e 5, fs 5] :+:
+>       lmap vol [fs 5 tn, e 5 (qn-tn), d 5 en, e 5 tn, d 5 (qn-tn),
+>                 cs 5 en, d 5 tn, cs 5 (qn-tn), b 4 (en+hn)]
+> v2e = lmap vol [cs 5 en, b 4 en, fs 5 en, a 5 en, b 5 (hn+qn), a 5 en,
+>                 fs 5 en, e 5 qn, d 5 en, fs 5 en, e 5 hn, d 5 hn, fs 5 qn]
+> v2f = Tempo (3/2) (lmap vol [cs 5 en, d 5 en, cs 5 en]) :+: b 4 (3*dhn+hn) v
+> 
+> mainVoice = v1 :+: v2 :+: times 2 v3 :+: v1 :+: v2
 > 
 > -- Putting it all together:
-> Twinkletwinkle = Instr "piano" (Tempo 3 (Phrase [Dyn SF] bassLine :=: mainVoice))
+> childSong6 = Instr "piano" (Tempo 3 (Phrase [Dyn SF] bassLine :=: mainVoice))
 
 \end{verbatim} }
