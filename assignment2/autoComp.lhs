@@ -42,11 +42,12 @@ And thus the song is CCFG FCGC CFCG CFCG CCFG FCGC or if you call the patterns 1
 
 The melody of the song is in this case a series of quarter notes. Like so:
 
-| C C C C | F F G - |
-| F F C C | G G C - |
-| C C F F | C C G - | x2
-| C C C C | F F G - |
-| F F C C | G G C - |
+| C C G G | A A G - |
+| F F E E | D D C - |
+| G G F F | E E D - |
+| G G F F | E E D - |
+| C C G G | A A G - |
+| F F E E | D D C - |
 
 
 Bass Lines
