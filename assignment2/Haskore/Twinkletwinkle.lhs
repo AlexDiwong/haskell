@@ -3,7 +3,7 @@
 
 {\small\begin{verbatim} 
 
-> module ChildSong6 where
+> module Twinkletwinkle where
 > import Haskore
 >
 > -- note updaters for mappings
@@ -24,13 +24,13 @@
 > bassLine = times 3 b1 :+: times 2 b2 :+: times 4 b3 :+: times 5 b1
 > 
 > -- Main Voice:
-> v1  = lmap (fd en) [c 5, c 5, c 5, c 5, f 4, f 4, g 4, g 4]
-> v2  = lmap vol [f 4, f 4, c 5, c 5, g 4, g 4, c 5, c 5]
-> v3  = lmap vol [c 5, c 5, f 4, f 4, c 5, c 5, g 4, g 4]
+> v1  = lmap (fd dqn) [c 5, c 5, g 5, g 5, a 5, a 5] :+: lmap (fd dhn) [g 5]
+> v2  = lmap (fd dqn) [f 5, f 5, e 5, e 5, d 5, d 5] :+: lmap (fd dhn) [c 5]
+> v3  = lmap (fd dqn) [g 5, g 5, f 5, f 5, e 5, e 5] :+: lmap (fd dhn) [d 5]
 > 
 > mainVoice = v1 :+: v2 :+: (times 2 v3) :+: v1 :+: v2
 > 
 > -- Putting it all together:
-> childSong6 = Instr "piano" (Tempo 3 (Phrase [Dyn SF] bassLine :=: mainVoice))
+> twinkleTwinkle = Instr "piano" (Tempo 3 (Phrase [Dyn SF] mainVoice))
 
 \end{verbatim} }
